@@ -42,6 +42,7 @@ declare global {
         publicKey: string;
         warpIPv6: string;
         reserved: string;
+        accountType?: 'free' | 'plus' | 'team';
     }
 
     interface DnsHost {
@@ -85,10 +86,14 @@ declare global {
         bestVLTRInterval: number;
         VLConfigs: boolean;
         TRConfigs: boolean;
+        VMConfigs: boolean;
+        SSConfigs: boolean;
+        HYConfigs: boolean;
+        TUConfigs: boolean;
         ports: number[];
         fingerprint: Fingerprint;
         enableTFO: boolean;
-        fragmentMode: "custom" | "low" | "medium" | "high";
+        fragmentMode: "custom" | "low" | "medium" | "high" | "severe" | "glider" | "obfs" | "random-packet";
         fragmentLengthMin: number;
         fragmentLengthMax: number;
         fragmentIntervalMin: number;
@@ -98,6 +103,10 @@ declare global {
         fragmentMaxSplitMax?: number;
         enableECH: boolean;
         echServerName: string;
+        enableHttp2: boolean;
+        enableHttp3: boolean;
+        enableGrpc: boolean;
+        grpcServiceName: string;
         bypassIran: boolean;
         bypassChina: boolean;
         bypassRussia: boolean;
@@ -114,18 +123,34 @@ declare global {
         bypassAsus: boolean;
         bypassHp: boolean;
         bypassLenovo: boolean;
+        bypassSteam: boolean;
+        bypassDiscord: boolean;
+        bypassSpotify: boolean;
+        bypassNetflix: boolean;
+        bypassGithub: boolean;
+        bypassTelegram: boolean;
+        bypassWhatsApp: boolean;
+        bypassZoom: boolean;
         blockAds: boolean;
         blockPorn: boolean;
         blockUDP443: boolean;
         blockMalware: boolean;
         blockPhishing: boolean;
         blockCryptominers: boolean;
+        blockGambling: boolean;
+        blockSocialMedia: boolean;
+        blockTracking: boolean;
+        blockTelemetry: boolean;
         customBypassRules: string[];
         customBlockRules: string[];
         customBypassSanctionRules: string[];
         warpRemoteDNS: string;
         warpEndpoints: string[];
         bestWarpInterval: number;
+        warpLicenseKey: string;
+        warpAccountType: 'free' | 'plus' | 'team';
+        warpLoadBalancing: boolean;
+        warpLoadBalancingMode: 'round-robin' | 'random' | 'least-conn' | 'weighted';
         xrayUdpNoises: XrUdpNoise[];
         knockerNoiseMode: string;
         noiseCountMin: number;
@@ -138,6 +163,25 @@ declare global {
         amneziaNoiseSizeMin: number;
         amneziaNoiseSizeMax: number;
         panelVersion: string;
+        ssPassword: string;
+        ssMethod: 'aes-128-gcm' | 'aes-256-gcm' | 'chacha20-poly1305' | 'xchacha20-poly1305';
+        vmessUUID: string;
+        vmessAlterId: number;
+        hysteria2Password: string;
+        hysteria2Obfs: string;
+        tuicUUID: string;
+        tuicPassword: string;
+        realityPublicKey: string;
+        realityShortId: string;
+        enableFilterRules: boolean;
+        enableWhitelist: boolean;
+        enableBlacklist: boolean;
+        enableMonitoring: boolean;
+        monitoringRetentionDays: number;
+        enableBackup: boolean;
+        backupSchedule: 'daily' | 'weekly' | 'manual';
+        chainProxyEnabled: boolean;
+        chainProxyMode: 'serial' | 'parallel' | 'failover' | 'load-balance';
     }
 
     var settings: Settings;
